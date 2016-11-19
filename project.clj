@@ -7,12 +7,15 @@
             :key "mit"}
   :dependencies [[org.clojure/clojure "1.9.0-alpha14"]
                  [alumbra/parser "0.1.1"]
+                 [alumbra/analyzer "0.1.0"]
                  [perforate "0.3.4"]]
   :plugins [[perforate "0.3.4"]]
   :perforate
   {:benchmark-paths ["src"]
    :environments
    [{:name :document-parser
-     :namespaces [alumbra.benchmarks.document-parser]}]}
+     :namespaces [alumbra.benchmarks.document-parser]}
+    {:name :canonicalizer
+     :namespaces [alumbra.benchmarks.canonicalizer]}]}
   :jvm-opts ^:replace ["-server" "-Xmx1g" "-Xms1g"]
   :pedantic? :abort)
