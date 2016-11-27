@@ -22,6 +22,10 @@
 (defmacro defcase-canonicalizer
   [k query & params]
   `(let [ast# (ql/parse-document ~query)]
+     (assert (not (:alumbra/parser-errors ast#))
+             (format "parsing failed in case '%s': %s"
+                     ~(str k)
+                     ast#))
      (defcase canonicalizer ~k
        []
        (canonicalize ast# ~@params))))
@@ -51,7 +55,7 @@
 
 (defcase-canonicalizer :nested-query-with-named-spread
   "{ me { ... PersonInfo, pets { name, owner { ... PersonInfo } } } }
-   fragment PersonInfo { name, age }")
+   fragment PersonInfo on Person { name, age }")
 
 (defcase-canonicalizer :nested-query-with-chained-fragments
   "{ me { ... PersonInfo, pets { name, owner { ... PersonInfo } } } }
