@@ -17,7 +17,9 @@ $ lein perforate
 Benchmarks can be run per component by adding the desired environment to the
 call:
 
+- `canonicalizer`
 - `document-parser`
+- `validator`
 
 ## License
 
