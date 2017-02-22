@@ -6,9 +6,9 @@
             :year 2016
             :key "mit"}
   :dependencies [[org.clojure/clojure "1.9.0-alpha14"]
-                 [alumbra/parser "0.1.2"]
-                 [alumbra/validator "0.1.0-SNAPSHOT"]
-                 [alumbra/analyzer "0.1.2"]
+                 [alumbra/parser "0.1.5"]
+                 [alumbra/validator "0.1.0"]
+                 [alumbra/analyzer "0.1.7"]
                  [perforate "0.3.4"]]
   :plugins [[perforate "0.3.4"]]
   :perforate
